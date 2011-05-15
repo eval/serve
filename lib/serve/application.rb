@@ -21,6 +21,10 @@ module Serve
       when options[:create]
         require 'serve/project'
         Serve::Project.new(options[:create]).create
+      when options[:export]
+        src_folder = File.join(options[:root], 'views')
+        dest_folder = options[:export][:destination]
+        Serve::Exporter.new(src_folder, dest_folder, :static_files => ['public/.']).export
       when options[:convert]
         require 'serve/project'
         Serve::Project.new(options[:convert]).convert
@@ -55,6 +59,7 @@ module Serve
       options[:root]        = extract_root(args)
       options[:address]     = extract_address(args)
       options[:port]        = extract_port(args)
+      options[:export]      = extract_exporting(args)
       raise InvalidArgumentsError if args.size > 0
       options
     end
@@ -192,6 +197,15 @@ module Serve
           {
            :directory => (args.first ? File.expand_path(args.pop) : Dir.pwd),
            :framework => framework 
+          }
+        end
+      end
+
+      def extract_exporting(args)
+        if args.delete('export')
+          args.reverse!
+          {
+           :destination => (args.first ? File.expand_path(args.pop) : options[:root] + '/output')
           }
         end
       end

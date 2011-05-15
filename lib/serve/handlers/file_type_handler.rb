@@ -18,6 +18,7 @@ module Serve #:nodoc:
     
     def initialize(root_path, path)
       @root_path = root_path
+
       @script_filename = File.join(@root_path, path)
     end
     
