@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Serve
   class Exporter
     def initialize(source_folder, destination_folder, options={})
