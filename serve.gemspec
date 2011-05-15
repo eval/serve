@@ -18,66 +18,13 @@ Gem::Specification.new do |s|
     "LICENSE",
      "README.rdoc"
   ]
-  s.files = [
-    "CHANGELOG.rdoc",
-     "Gemfile",
-     "Gemfile.lock",
-     "LICENSE",
-     "QUICKSTART.rdoc",
-     "README.rdoc",
-     "Rakefile",
-     "VERSION",
-     "bin/serve",
-     "lib/serve.rb",
-     "lib/serve/application.rb",
-     "lib/serve/file_resolver.rb",
-     "lib/serve/handlers/dynamic_handler.rb",
-     "lib/serve/handlers/email_handler.rb",
-     "lib/serve/handlers/file_type_handler.rb",
-     "lib/serve/handlers/markdown_handler.rb",
-     "lib/serve/handlers/redirect_handler.rb",
-     "lib/serve/handlers/sass_handler.rb",
-     "lib/serve/handlers/static_handler.rb",
-     "lib/serve/handlers/textile_handler.rb",
-     "lib/serve/javascripts.rb",
-     "lib/serve/out.rb",
-     "lib/serve/project.rb",
-     "lib/serve/rack.rb",
-     "lib/serve/rails.rb",
-     "lib/serve/rails/configuration.rb",
-     "lib/serve/rails/mount.rb",
-     "lib/serve/rails/routing.rb",
-     "lib/serve/rails/serve_controller.rb",
-     "lib/serve/response_cache.rb",
-     "lib/serve/templates/LICENSE",
-     "lib/serve/templates/README.markdown",
-     "lib/serve/templates/_layout.html.erb",
-     "lib/serve/templates/application.sass",
-     "lib/serve/templates/compass.config",
-     "lib/serve/templates/config.ru",
-     "lib/serve/templates/gitignore",
-     "lib/serve/templates/hello.html.erb",
-     "lib/serve/templates/index.redirect",
-     "lib/serve/templates/view_helpers.rb",
-     "lib/serve/version.rb",
-     "lib/serve/view_helpers.rb",
-     "rails/init.rb",
-     "spec/application_spec.rb",
-     "spec/project_spec.rb",
-     "spec/response_cache_spec.rb",
-     "spec/spec_helper.rb"
-  ]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.homepage = %q{http://github.com/jlong/serve}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Serve is a small web server that makes it easy to serve ERB or HAML from any directory.}
-  s.test_files = [
-    "spec/application_spec.rb",
-     "spec/project_spec.rb",
-     "spec/response_cache_spec.rb",
-     "spec/spec_helper.rb"
-  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
